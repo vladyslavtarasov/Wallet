@@ -1,0 +1,90 @@
+﻿using ConsoleWallet;
+using ConsoleWallet.Controllers;
+using BLL;
+using BLL.Interfaces;
+using BLL.Services;
+using BLL.Services.Realizations;
+using Ninject;
+using DAL;
+
+const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=WalletDb;Trusted_Connection=True;";
+
+/*
+//----------------------------------------------------------
+IKernel IoCWallet = new StandardKernel(new BLLConfig(connectionString));
+
+IoCWallet.Bind<IAccountService>().To<AccountService>();
+IoCWallet.Bind<IExpenseCategoryService>().To<ExpenseCategoryService>();
+IoCWallet.Bind<IExpenseStatementService>().To<ExpenseStatementService>();
+IoCWallet.Bind<IIncomeCategoryService>().To<IncomeCategoryService>();
+IoCWallet.Bind<IIncomeStatementService>().To<IncomeStatementService>();
+IoCWallet.Bind<IUserService>().To<UserService>();
+
+IAccountService accountService = IoCWallet.Get<IAccountService>();
+IExpenseCategoryService expenseCategoryService = IoCWallet.Get<IExpenseCategoryService>();
+IExpenseStatementService expenseStatementService = IoCWallet.Get<IExpenseStatementService>();
+IIncomeCategoryService incomeCategoryService = IoCWallet.Get<IIncomeCategoryService>();
+IIncomeStatementService incomeStatementService = IoCWallet.Get<IIncomeStatementService>();
+IUserService userService = IoCWallet.Get<IUserService>();
+
+AccountController accountController = new AccountController(accountService);
+ExpenseCategoryController expenseCategoryController = new ExpenseCategoryController(expenseCategoryService);
+ExpenseStatementController expenseStatementController = new ExpenseStatementController(expenseStatementService);
+IncomeCategoryController incomeCategoryController = new IncomeCategoryController(incomeCategoryService);
+IncomeStatementController incomeStatementController = new IncomeStatementController(incomeStatementService);
+UserController userController = new UserController(userService);*/
+
+using var db = new WalletContext(connectionString);
+
+var unitOfWork = new UnitOfWork(db);
+
+IAccountService accountService = new AccountService(unitOfWork);
+IExpenseCategoryService expenseCategoryService = new ExpenseCategoryService(unitOfWork);
+IExpenseStatementService expenseStatementService = new ExpenseStatementService(unitOfWork);
+IIncomeCategoryService incomeCategoryService = new IncomeCategoryService(unitOfWork);
+IIncomeStatementService incomeStatementService = new IncomeStatementService(unitOfWork);
+IUserService userService = new UserService(unitOfWork);
+
+AccountController accountController = new AccountController(accountService);
+ExpenseCategoryController expenseCategoryController = new ExpenseCategoryController(expenseCategoryService);
+ExpenseStatementController expenseStatementController = new ExpenseStatementController(expenseStatementService);
+IncomeCategoryController incomeCategoryController = new IncomeCategoryController(incomeCategoryService);
+IncomeStatementController incomeStatementController = new IncomeStatementController(incomeStatementService);
+UserController userController = new UserController(userService);
+
+WalletApp walletApp = new WalletApp(accountController, expenseCategoryController,
+                                    expenseStatementController, incomeCategoryController,
+                                    incomeStatementController, userController);
+
+walletApp.StartWallet();
+
+/*using (var db = new WalletContext())
+{
+    db.Database.EnsureCreated();
+    var user1 = new User
+    {
+        Name = "dsad2",
+        Surname = "dsadsad2",
+        Password = "dsadsad2",
+        UserName = "dsadsad2"
+    };
+    var user2 = new User
+    {
+        Name = "dsad1",
+        Surname = "dsadsad1",
+        Password = "dsadsad1",
+        UserName = "dsadsad1"
+    };
+
+    var unit = new UnitOfWork(db);
+    
+    unit.Users.Create(user1);
+    unit.Users.Create(user2);
+    unit.Save();
+
+    var users = db.Users.ToList();
+    foreach (var user in users)
+    {
+        Console.WriteLine($"{user.Name} - {user.Surname}");
+    }
+}*/
