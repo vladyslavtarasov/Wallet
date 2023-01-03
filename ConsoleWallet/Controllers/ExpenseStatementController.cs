@@ -1,4 +1,4 @@
-﻿using BLL.Interfaces;
+﻿using BLL.Services.Interfaces;
 
 namespace ConsoleWallet.Controllers;
 

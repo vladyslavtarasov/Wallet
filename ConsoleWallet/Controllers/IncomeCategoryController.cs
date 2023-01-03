@@ -1,5 +1,5 @@
 ﻿using BLL.BusinessModels;
-using BLL.Interfaces;
+using BLL.Services.Interfaces;
 
 namespace ConsoleWallet.Controllers;
 
@@ -59,6 +59,7 @@ public class IncomeCategoryController
         
         Console.WriteLine($"User - {userName}");
         Console.WriteLine($"Account - {accountName}");
+        Console.WriteLine("Choose income category:");
         businessIncomeCategories = _incomeCategoryService.GetAccountIncomeCategories(userName, accountName);
         PrintIncomeCategories(businessIncomeCategories);
         Console.WriteLine("0 - Go back");
@@ -88,7 +89,11 @@ public class IncomeCategoryController
         if (defaultCategory is not null)
             businessIncomeCategories.Remove(defaultCategory);
         
-        PrintIncomeCategories(businessIncomeCategories);
+        if (businessIncomeCategories.Count != 0)
+            PrintIncomeCategories(businessIncomeCategories);
+        else
+            Console.WriteLine("You do not have any income categories to delete");
+        
         Console.WriteLine("0 - Go back");
         Console.WriteLine();
         

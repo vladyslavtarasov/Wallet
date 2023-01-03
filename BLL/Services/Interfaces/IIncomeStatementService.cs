@@ -1,4 +1,4 @@
-﻿namespace BLL.Interfaces;
+﻿namespace BLL.Services.Interfaces;
 
 public interface IIncomeStatementService
 {

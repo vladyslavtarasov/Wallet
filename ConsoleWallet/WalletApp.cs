@@ -29,15 +29,19 @@ public class WalletApp
 
     public void StartWallet()
     {
+        Console.Clear();
         int choice;
         do
         {
             choice = MainMenu();
+            Console.ReadKey(true);
+            //Console.Clear();
         } while (choice != 0);
     }
 
     private int MainMenu()
     {
+        Console.Clear();
         int choice;
 
         if (_userName is null)
@@ -80,6 +84,8 @@ public class WalletApp
                         do
                         {
                             accountChoice = AccountMenu();
+                            Console.ReadKey(true);
+                            //Console.Clear();
                         } while (accountChoice != 0 && accountChoice != 7);
                     }
                     break;
@@ -90,6 +96,8 @@ public class WalletApp
                         do
                         {
                             accountChoice = AccountMenu();
+                            Console.ReadKey(true);
+                            //Console.Clear();
                         } while (accountChoice != 0 && accountChoice != 7);
                     }
                     break;
@@ -104,6 +112,7 @@ public class WalletApp
 
     private int AccountMenu()
     {
+        Console.Clear();
         Console.WriteLine($"User - {_userName}");
         Console.WriteLine($"Account - {_accountName}");
         Console.WriteLine($"Balance - {_account.GetBalance(_userName, _accountName)}");
@@ -142,12 +151,16 @@ public class WalletApp
                 do
                 {
                     categoryChoice = ExpenseCategoryMenu();
+                    Console.ReadKey(true);
+                    //Console.Clear();
                 } while (categoryChoice != 0);
                 break;
             case 4:
                 do
                 {
                     categoryChoice = IncomeCategoryMenu();
+                    Console.ReadKey(true);
+                    //Console.Clear();
                 } while (categoryChoice != 0);
                 break;
             case 5:
@@ -158,6 +171,8 @@ public class WalletApp
                 do
                 {
                     historyChoice = HistoryMenu();
+                    Console.ReadKey(true);
+                    //Console.Clear();
                 } while (historyChoice != 0);
                 break;
             case 7:
@@ -170,6 +185,7 @@ public class WalletApp
 
     private int ExpenseCategoryMenu()
     {
+        Console.Clear();
         Console.WriteLine($"User - {_userName}");
         Console.WriteLine($"Account - {_accountName}");
 
@@ -200,6 +216,7 @@ public class WalletApp
     
     private int IncomeCategoryMenu()
     {
+        Console.Clear();
         Console.WriteLine($"User - {_userName}");
         Console.WriteLine($"Account - {_accountName}");
 
@@ -230,6 +247,7 @@ public class WalletApp
 
     private int HistoryMenu()
     {
+        Console.Clear();
         Console.WriteLine($"User - {_userName}");
         Console.WriteLine($"Account - {_accountName}");
 

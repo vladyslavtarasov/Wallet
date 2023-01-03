@@ -1,5 +1,6 @@
 ﻿using DAL.Models;
 using DAL.Repositories;
+using DAL.Repositories.Interfaces;
 
 namespace DAL;
 

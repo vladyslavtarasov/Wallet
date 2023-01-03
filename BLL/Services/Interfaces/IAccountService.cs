@@ -1,7 +1,6 @@
 ﻿using BLL.BusinessModels;
-using DAL.Models;
 
-namespace BLL.Interfaces;
+namespace BLL.Services.Interfaces;
 
 public interface IAccountService
 {

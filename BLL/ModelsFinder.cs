@@ -46,7 +46,7 @@ public class ModelsFinder
                                  && c.Name.Equals(categoryName)
                                  && c.Account.Name.Equals(accountName));
         if (category is null)
-            throw new ArgumentException("This category does not exist", nameof(userName));
+            throw new ArgumentException("This category does not exist", nameof(categoryName));
 
         return category;
     }

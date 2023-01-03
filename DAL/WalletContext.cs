@@ -6,10 +6,15 @@ namespace DAL;
 public class WalletContext : DbContext
 {
     private string _connection;
-    public WalletContext(string connection)
+    /*public WalletContext(string connection)
     {
         _connection = connection;
         Database.EnsureDeleted();
+        Database.EnsureCreated();
+    }*/
+    public WalletContext(DbContextOptions<WalletContext> options) : base(options)
+    {
+        //Database.EnsureDeleted();
         Database.EnsureCreated();
     }
     public DbSet<Account> Accounts { get; set; } = null!;
@@ -19,9 +24,9 @@ public class WalletContext : DbContext
     public DbSet<ExpenseStatement> ExpenseStatements { get; set; } = null!;
     public DbSet<IncomeStatement> IncomeStatements { get; set; } = null!;
     
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(_connection);
-    }
+    }*/
     //@"Server=(localdb)\mssqllocaldb;Database=WalletDb;Trusted_Connection=True;"
 }

@@ -1,5 +1,7 @@
 ﻿using DAL.Models;
 using DAL.Repositories;
+using DAL.Repositories.Interfaces;
+using DAL.Repositories.Realizations;
 
 namespace DAL;
 
@@ -13,7 +15,7 @@ public class UnitOfWork : IDisposable, IUnitOfWork
     public IRepository<IncomeCategory> IncomeCategories { get; }
     public IRepository<IncomeStatement> IncomeStatements { get; }
     
-    public UnitOfWork(string connectionString)
+    /*public UnitOfWork(string connectionString)
     {
         _db = new WalletContext(connectionString);
         Accounts = new AccountRepository(_db);
@@ -22,7 +24,7 @@ public class UnitOfWork : IDisposable, IUnitOfWork
         ExpenseStatements = new ExpenseStatementRepository(_db);
         IncomeCategories = new IncomeCategoryRepository(_db);
         IncomeStatements = new IncomeStatementRepository(_db);
-    }
+    }*/
     
     public UnitOfWork(WalletContext db)
     {

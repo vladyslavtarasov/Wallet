@@ -1,7 +1,8 @@
 ﻿using DAL.Models;
+using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace DAL.Repositories;
+namespace DAL.Repositories.Realizations;
 
 public class AccountRepository : IRepository<Account>
 {

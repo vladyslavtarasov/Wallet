@@ -1,5 +1,5 @@
 ﻿using BLL.BusinessModels;
-using BLL.Interfaces;
+using BLL.Services.Interfaces;
 using DAL;
 using DAL.Models;
 
@@ -104,7 +104,7 @@ public class AccountService : IAccountService
         _modelsFinder.GetAccount(userName, accountName);
         
         var spentAmount = _unitOfWork.ExpenseStatements.GetAll()
-            .Where(s => s.ExpenseCategory.Account.User.Name.Equals(userName) 
+            .Where(s => s.ExpenseCategory.Account.User.UserName.Equals(userName) 
                         && s.ExpenseCategory.Account.Name.Equals(accountName))
             .Sum(s => s.Amount);
         
@@ -120,7 +120,7 @@ public class AccountService : IAccountService
         _modelsFinder.GetExpenseCategory(userName, accountName, categoryName);
         
         var spentAmount = _unitOfWork.ExpenseStatements.GetAll()
-            .Where(s => s.ExpenseCategory.Account.User.Name.Equals(userName))
+            .Where(s => s.ExpenseCategory.Account.User.UserName.Equals(userName))
             .Where(s => s.ExpenseCategory.Name.Equals(categoryName))
             .Sum(s => s.Amount);
         
@@ -134,7 +134,7 @@ public class AccountService : IAccountService
         _modelsFinder.GetAccount(userName, accountName);
         
         var spentAmount = _unitOfWork.IncomeStatements.GetAll()
-            .Where(s => s.IncomeCategory.Account.User.Name.Equals(userName) 
+            .Where(s => s.IncomeCategory.Account.User.UserName.Equals(userName) 
                         && s.IncomeCategory.Account.Name.Equals(accountName))
             
             .Sum(s => s.Amount);
@@ -151,7 +151,7 @@ public class AccountService : IAccountService
         _modelsFinder.GetIncomeCategory(userName, accountName, categoryName);
 
         var spentAmount = _unitOfWork.IncomeStatements.GetAll()
-            .Where(s => s.IncomeCategory.Account.User.Name.Equals(userName))
+            .Where(s => s.IncomeCategory.Account.User.UserName.Equals(userName))
             .Where(s => s.IncomeCategory.Name.Equals(categoryName))
             .Sum(s => s.Amount);
         
@@ -165,7 +165,7 @@ public class AccountService : IAccountService
         _modelsFinder.GetAccount(userName, accountName);
 
         var statements = _unitOfWork.ExpenseStatements.GetAll()
-            .Where(s => s.ExpenseCategory.Account.User.Name.Equals(userName) 
+            .Where(s => s.ExpenseCategory.Account.User.UserName.Equals(userName) 
                         && s.ExpenseCategory.Account.Name.Equals(accountName));
 
         var businessStatements = new List<BusinessExpenseStatement>();
@@ -195,7 +195,7 @@ public class AccountService : IAccountService
         _modelsFinder.GetExpenseCategory(userName, accountName, categoryName);
         
         var statements = _unitOfWork.ExpenseStatements.GetAll()
-            .Where(s => s.ExpenseCategory.Account.User.Name.Equals(userName) 
+            .Where(s => s.ExpenseCategory.Account.User.UserName.Equals(userName) 
                         && s.ExpenseCategory.Name.Equals(categoryName));
 
         var businessStatements = new List<BusinessExpenseStatement>();
@@ -222,7 +222,7 @@ public class AccountService : IAccountService
         _modelsFinder.GetAccount(userName, accountName);
         
         var statements = _unitOfWork.IncomeStatements.GetAll()
-            .Where(s => s.IncomeCategory.Account.User.Name.Equals(userName) 
+            .Where(s => s.IncomeCategory.Account.User.UserName.Equals(userName) 
                         &&s.IncomeCategory.Account.Name.Equals(accountName));
 
         var businessStatements = new List<BusinessIncomeStatement>();
@@ -252,7 +252,7 @@ public class AccountService : IAccountService
         _modelsFinder.GetIncomeCategory(userName, accountName, categoryName);
         
         var statements = _unitOfWork.IncomeStatements.GetAll()
-            .Where(s => s.IncomeCategory.Account.User.Name.Equals(userName) 
+            .Where(s => s.IncomeCategory.Account.User.UserName.Equals(userName) 
                         && s.IncomeCategory.Name.Equals(categoryName));
 
         var businessStatements = new List<BusinessIncomeStatement>();

@@ -1,4 +1,6 @@
-﻿namespace WalletServicesTests.RepositoriesMock;
+﻿using DAL.Repositories.Interfaces;
+
+namespace WalletServicesTests.RepositoriesMock;
 
 public class UserRepositoryMock : IRepository<User>
 {

@@ -1,11 +1,12 @@
 ﻿using ConsoleWallet;
 using ConsoleWallet.Controllers;
 using BLL;
-using BLL.Interfaces;
 using BLL.Services;
+using BLL.Services.Interfaces;
 using BLL.Services.Realizations;
 using Ninject;
 using DAL;
+using Microsoft.EntityFrameworkCore;
 
 const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=WalletDb;Trusted_Connection=True;";
 
@@ -34,7 +35,10 @@ IncomeCategoryController incomeCategoryController = new IncomeCategoryController
 IncomeStatementController incomeStatementController = new IncomeStatementController(incomeStatementService);
 UserController userController = new UserController(userService);*/
 
-using var db = new WalletContext(connectionString);
+var optionsBuilder = new DbContextOptionsBuilder<WalletContext>();
+var options = optionsBuilder.UseSqlServer(connectionString).Options;
+
+using var db = new WalletContext(options);
 
 var unitOfWork = new UnitOfWork(db);
 

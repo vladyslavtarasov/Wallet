@@ -1,0 +1,57 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using BLL.Services.Interfaces;
+using WalletAPI.ViewModels.UserViewModels;
+
+namespace WalletAPI.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class UserController : ControllerBase
+{
+    private readonly IUserService _userService;
+    
+    public UserController(IUserService userService)
+    {
+        _userService = userService;
+    }
+
+    [HttpPost("/User/Register")]
+    public IActionResult RegisterUser(RegisterUserViewModel model)
+    {
+        if (string.IsNullOrEmpty(model.Name) 
+            || string.IsNullOrEmpty(model.Surname)
+            || string.IsNullOrEmpty(model.UserName) 
+            || string.IsNullOrEmpty(model.Password))
+            return BadRequest("Empty fields");
+
+        try
+        {
+            _userService.RegisterUser(model.Name, model.Surname, model.UserName, model.Password);
+        }
+        catch (ArgumentException exception)
+        {
+            return BadRequest(exception.Message);
+        }
+
+        return Ok(model);
+    }
+    
+    [HttpPost("/User/Login")]
+    public IActionResult Login(LoginUserViewModel model)
+    {
+        if (string.IsNullOrEmpty(model.UserName) 
+            || string.IsNullOrEmpty(model.Password))
+            return BadRequest("Empty fields");
+
+        try
+        {
+            _userService.Login(model.UserName, model.Password);
+        }
+        catch (ArgumentException exception)
+        {
+            return BadRequest(exception.Message);
+        }
+
+        return Ok(model);
+    }
+}

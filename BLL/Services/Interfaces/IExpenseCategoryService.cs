@@ -1,6 +1,6 @@
 ﻿using BLL.BusinessModels;
 
-namespace BLL.Interfaces;
+namespace BLL.Services.Interfaces;
 
 public interface IExpenseCategoryService
 {

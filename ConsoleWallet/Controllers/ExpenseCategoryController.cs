@@ -1,5 +1,5 @@
 ﻿using BLL.BusinessModels;
-using BLL.Interfaces;
+using BLL.Services.Interfaces;
 
 namespace ConsoleWallet.Controllers;
 
@@ -39,7 +39,7 @@ public class ExpenseCategoryController
         }
     }
     
-    public void DeleteExpenseCategory(string userName, string categoryName, string accountName)
+    public void DeleteExpenseCategory(string userName, string accountName, string categoryName)
     {
         try
         {
@@ -59,6 +59,7 @@ public class ExpenseCategoryController
         
         Console.WriteLine($"User - {userName}");
         Console.WriteLine($"Account - {accountName}");
+        Console.WriteLine("Choose expense category:");
         businessExpenseCategories = _expenseCategoryService.GetAccountExpenseCategories(userName, accountName);
         PrintExpenseCategories(businessExpenseCategories);
         Console.WriteLine("0 - Go back");
@@ -86,8 +87,12 @@ public class ExpenseCategoryController
                 c.Name.Equals(_expenseCategoryService.GetDefaultCategoryName()));
         if (defaultCategory is not null)
             businessExpenseCategories.Remove(defaultCategory);
-        
-        PrintExpenseCategories(businessExpenseCategories);
+
+        if (businessExpenseCategories.Count != 0)
+            PrintExpenseCategories(businessExpenseCategories);
+        else
+            Console.WriteLine("You do not have any expense categories to delete");
+
         Console.WriteLine("0 - Go back");
         Console.WriteLine();
         
