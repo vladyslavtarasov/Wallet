@@ -16,7 +16,7 @@ public class IncomeStatementController : ControllerBase
     }
 
     [HttpPost("/IncomeStatement")]
-    public IActionResult RegisterUser(CreateIncomeStatementViewModel model)
+    public IActionResult CreateIncomeStatement(CreateIncomeStatementViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.AccountName)
@@ -35,6 +35,7 @@ public class IncomeStatementController : ControllerBase
             return BadRequest(exception.Message);
         }
 
-        return Ok(model);
+        //return Ok(model);
+        return StatusCode(StatusCodes.Status201Created, model);
     }
 }

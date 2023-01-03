@@ -35,6 +35,7 @@ public class ExpenseStatementController : ControllerBase
             return BadRequest(exception.Message);
         }
 
-        return Ok(model);
+        //return Ok(model);
+        return StatusCode(StatusCodes.Status201Created, model);
     }
 }

@@ -37,7 +37,8 @@ public class AccountController : ControllerBase
             return BadRequest(exception.Message);
         }
 
-        return Ok(model);
+        //return Ok(model);
+        return StatusCode(StatusCodes.Status201Created, model);
     }
     
     [HttpDelete("/Account")]
