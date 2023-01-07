@@ -1,11 +1,54 @@
 {
   "Version": 1,
-  "Hash": "S+4EWxHO8e4u+z2XqNjyZLvcisot/cfPUizLx1YIRGw=",
+  "Hash": "6OqTjRzvAOsv1cjgU5POQe5SklRWacUXRvFxT/99aw8=",
   "Source": "WalletAPI",
   "BasePath": "_content/WalletAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "WalletAPI\\wwwroot",
+      "Source": "WalletAPI",
+      "ContentRoot": "D:\\5 семестр\\.NET\\.NET3\\Wallet\\WalletAPI\\wwwroot\\",
+      "BasePath": "_content/WalletAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\5 семестр\\.NET\\.NET3\\Wallet\\WalletAPI\\wwwroot\\index.html",
+      "SourceId": "WalletAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\5 семестр\\.NET\\.NET3\\Wallet\\WalletAPI\\wwwroot\\",
+      "BasePath": "_content/WalletAPI",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\5 семестр\\.NET\\.NET3\\Wallet\\WalletAPI\\wwwroot\\script.js",
+      "SourceId": "WalletAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\5 семестр\\.NET\\.NET3\\Wallet\\WalletAPI\\wwwroot\\",
+      "BasePath": "_content/WalletAPI",
+      "RelativePath": "script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\script.js"
+    }
+  ]
 }

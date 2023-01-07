@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BLL.Services.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using WalletAPI.ViewModels.ExpenseStatementViewModels;
 
 namespace WalletAPI.Controllers;
@@ -15,6 +16,7 @@ public class ExpenseStatementController : ControllerBase
         _expenseStatementService = expenseStatementService;
     }
     
+    [EnableCors("WalletCorsPolicy")]
     [HttpPost("/ExpenseStatement")]
     public IActionResult CreateExpenseCategory(CreateExpenseStatementViewModel model)
     {

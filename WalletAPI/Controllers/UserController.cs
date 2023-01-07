@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BLL.Services.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using WalletAPI.ViewModels.UserViewModels;
 
 namespace WalletAPI.Controllers;
@@ -15,6 +16,7 @@ public class UserController : ControllerBase
         _userService = userService;
     }
 
+    [EnableCors("WalletCorsPolicy")]
     [HttpPost("/User/Register")]
     public IActionResult RegisterUser(RegisterUserViewModel model)
     {
@@ -37,6 +39,7 @@ public class UserController : ControllerBase
         return StatusCode(StatusCodes.Status201Created, model);
     }
     
+    [EnableCors("WalletCorsPolicy")]
     [HttpPost("/User/Login")]
     public IActionResult Login(LoginUserViewModel model)
     {

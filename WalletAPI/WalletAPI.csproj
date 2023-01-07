@@ -15,4 +15,13 @@
       <ProjectReference Include="..\DAL\DAL.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Pages" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\index.html" />
+      <None Include="wwwroot\script.js" />
+    </ItemGroup>
+
 </Project>

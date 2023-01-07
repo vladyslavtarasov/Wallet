@@ -1,6 +1,7 @@
 ﻿using BLL.BusinessModels;
 using Microsoft.AspNetCore.Mvc;
 using BLL.Services.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using WalletAPI.ViewModels.IncomeCategoryViewModels;
 
 namespace WalletAPI.Controllers;
@@ -16,6 +17,7 @@ public class IncomeCategoryController : ControllerBase
         _incomeCategoryService = incomeCategoryService;
     }
     
+    [EnableCors("WalletCorsPolicy")]
     [HttpPost("/IncomeCategory")]
     public IActionResult CreateIncomeCategory(IncomeCategoryViewModel model)
     {
@@ -37,6 +39,7 @@ public class IncomeCategoryController : ControllerBase
         return StatusCode(StatusCodes.Status201Created, model);
     }
     
+    [EnableCors("WalletCorsPolicy")]
     [HttpDelete("/IncomeCategory")]
     public IActionResult DeleteIncomeCategory(IncomeCategoryViewModel model)
     {
@@ -56,6 +59,7 @@ public class IncomeCategoryController : ControllerBase
         return NoContent();
     }
     
+    [EnableCors("WalletCorsPolicy")]
     [HttpGet("/IncomeCategory")]
     public IActionResult ExpenseCategories(string userName, string accountName)
     {

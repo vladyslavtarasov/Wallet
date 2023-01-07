@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BLL.Services.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using WalletAPI.ViewModels.IncomeStatementViewModels;
 
 namespace WalletAPI.Controllers;
@@ -15,6 +16,7 @@ public class IncomeStatementController : ControllerBase
         _incomeStatementService = incomeStatementService;
     }
 
+    [EnableCors("WalletCorsPolicy")]
     [HttpPost("/IncomeStatement")]
     public IActionResult CreateIncomeStatement(CreateIncomeStatementViewModel model)
     {

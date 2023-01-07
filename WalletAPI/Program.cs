@@ -4,6 +4,7 @@ using DAL;
 using DAL.Models;
 using DAL.Repositories.Interfaces;
 using DAL.Repositories.Realizations;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,6 +35,27 @@ builder.Services.AddScoped<IIncomeCategoryService, IncomeCategoryService>();
 builder.Services.AddScoped<IIncomeStatementService, IncomeStatementService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+/*builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy  =>
+        {
+            policy.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});*/
+
+var corsBuilder = new CorsPolicyBuilder();
+corsBuilder.AllowAnyHeader();
+corsBuilder.AllowAnyMethod();
+corsBuilder.AllowAnyOrigin();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("WalletCorsPolicy", corsBuilder.Build());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,6 +64,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+app.UseCors("WalletCorsPolicy");
 
 app.UseHttpsRedirection();
 

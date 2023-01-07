@@ -77,3 +77,4 @@ D:\5 семестр\.NET\.NET3\Wallet\WalletAPI\bin\Debug\net6.0\BLL.dll
 D:\5 семестр\.NET\.NET3\Wallet\WalletAPI\bin\Debug\net6.0\DAL.dll
 D:\5 семестр\.NET\.NET3\Wallet\WalletAPI\bin\Debug\net6.0\BLL.pdb
 D:\5 семестр\.NET\.NET3\Wallet\WalletAPI\bin\Debug\net6.0\DAL.pdb
+D:\5 семестр\.NET\.NET3\Wallet\WalletAPI\bin\Debug\net6.0\WalletAPI.staticwebassets.runtime.json
