@@ -41,7 +41,7 @@ public class ExpenseCategoryController : ControllerBase
     
     //[EnableCors("WalletCorsPolicy")]
     [HttpDelete("/ExpenseCategory")]
-    public IActionResult DeleteExpenseCategory(ExpenseCategoryViewModel model)
+    public IActionResult DeleteExpenseCategory([FromForm] ExpenseCategoryViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.AccountName))

@@ -6,4 +6,5 @@ public class GetAccountViewModel
     public decimal Balance { get; set; }
     public string Name { get; set; } = null!;
     public int UserId { get; set; }
+    public string UserName { get; set; } = null!;
 }

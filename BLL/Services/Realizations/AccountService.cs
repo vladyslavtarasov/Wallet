@@ -81,7 +81,7 @@ public class AccountService : IAccountService
             .Where(a => a.User.UserName.Equals(userName));
 
         return accounts.Select(account => new BusinessAccount
-            { Id = account.Id, Balance = account.Balance, Name = account.Name, UserId = account.UserId }).ToList();
+            { Id = account.Id, Balance = account.Balance, Name = account.Name, UserId = account.UserId, UserName = account.User.UserName}).ToList();
     }
 
     public void TransferBalance(string userName, string fromAccountName, string toAccountName, decimal amount)

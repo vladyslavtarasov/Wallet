@@ -41,7 +41,7 @@ public class IncomeCategoryController : ControllerBase
     
     //[EnableCors("WalletCorsPolicy")]
     [HttpDelete("/IncomeCategory")]
-    public IActionResult DeleteIncomeCategory(IncomeCategoryViewModel model)
+    public IActionResult DeleteIncomeCategory([FromForm] IncomeCategoryViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.AccountName))

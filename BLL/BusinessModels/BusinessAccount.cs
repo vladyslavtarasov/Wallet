@@ -5,6 +5,8 @@ public class BusinessAccount
     public int Id { get; set; }
     public decimal Balance { get; set; }
     public string Name { get; set; } = null!;
+    
+    public string UserName { get; set; } = null!;
     public int UserId { get; set; }
 
     public override string ToString()

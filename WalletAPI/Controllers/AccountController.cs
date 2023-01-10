@@ -45,7 +45,7 @@ public class AccountController : ControllerBase
     
     //[EnableCors("WalletCorsPolicy")]
     [HttpDelete("/Account")]
-    public IActionResult DeleteAccount(DeleteAccountViewModel model)
+    public IActionResult DeleteAccount([FromForm] DeleteAccountViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.AccountName))

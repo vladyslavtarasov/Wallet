@@ -16,7 +16,8 @@ public static class Mapper
             Id = account.Id,
             Balance = account.Balance,
             Name = account.Name,
-            UserId = account.UserId
+            UserId = account.UserId,
+            UserName = account.UserName
         };
 
         return viewModelStatement;
