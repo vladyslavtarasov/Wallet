@@ -17,9 +17,9 @@ public class IncomeCategoryController : ControllerBase
         _incomeCategoryService = incomeCategoryService;
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpPost("/IncomeCategory")]
-    public IActionResult CreateIncomeCategory(IncomeCategoryViewModel model)
+    public IActionResult CreateIncomeCategory([FromForm] IncomeCategoryViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.AccountName)
@@ -39,7 +39,7 @@ public class IncomeCategoryController : ControllerBase
         return StatusCode(StatusCodes.Status201Created, model);
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpDelete("/IncomeCategory")]
     public IActionResult DeleteIncomeCategory(IncomeCategoryViewModel model)
     {
@@ -59,7 +59,7 @@ public class IncomeCategoryController : ControllerBase
         return NoContent();
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpGet("/IncomeCategory")]
     public IActionResult ExpenseCategories(string userName, string accountName)
     {

@@ -17,9 +17,9 @@ public class ExpenseCategoryController : ControllerBase
         _expenseCategoryService = expenseCategoryService;
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpPost("/ExpenseCategory")]
-    public IActionResult CreateExpenseCategory(ExpenseCategoryViewModel model)
+    public IActionResult CreateExpenseCategory([FromForm] ExpenseCategoryViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.AccountName)
@@ -39,7 +39,7 @@ public class ExpenseCategoryController : ControllerBase
         return StatusCode(StatusCodes.Status201Created, model);
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpDelete("/ExpenseCategory")]
     public IActionResult DeleteExpenseCategory(ExpenseCategoryViewModel model)
     {
@@ -59,7 +59,7 @@ public class ExpenseCategoryController : ControllerBase
         return NoContent();
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpGet("/ExpenseCategory")]
     public IActionResult ExpenseCategories(string userName, string accountName)
     {

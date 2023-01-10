@@ -15,6 +15,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
 
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<WalletContext>(options => options.UseSqlServer(connection));
@@ -46,7 +47,7 @@ builder.Services.AddScoped<IUserService, UserService>();
         });
 });*/
 
-var corsBuilder = new CorsPolicyBuilder();
+/*var corsBuilder = new CorsPolicyBuilder();
 corsBuilder.AllowAnyHeader();
 corsBuilder.AllowAnyMethod();
 corsBuilder.AllowAnyOrigin();
@@ -54,9 +55,12 @@ corsBuilder.AllowAnyOrigin();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("WalletCorsPolicy", corsBuilder.Build());
-});
+});*/
+
 
 var app = builder.Build();
+
+app.UseCors(builder => builder.AllowAnyOrigin());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -68,7 +72,7 @@ if (app.Environment.IsDevelopment())
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-app.UseCors("WalletCorsPolicy");
+//app.UseCors("WalletCorsPolicy");
 
 app.UseHttpsRedirection();
 

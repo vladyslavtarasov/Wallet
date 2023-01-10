@@ -16,9 +16,9 @@ public class UserController : ControllerBase
         _userService = userService;
     }
 
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpPost("/User/Register")]
-    public IActionResult RegisterUser(RegisterUserViewModel model)
+    public IActionResult RegisterUser([FromForm] RegisterUserViewModel model)
     {
         if (string.IsNullOrEmpty(model.Name) 
             || string.IsNullOrEmpty(model.Surname)
@@ -39,9 +39,9 @@ public class UserController : ControllerBase
         return StatusCode(StatusCodes.Status201Created, model);
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpPost("/User/Login")]
-    public IActionResult Login(LoginUserViewModel model)
+    public IActionResult Login([FromForm] LoginUserViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.Password))

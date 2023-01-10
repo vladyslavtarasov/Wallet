@@ -16,9 +16,9 @@ public class IncomeStatementController : ControllerBase
         _incomeStatementService = incomeStatementService;
     }
 
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpPost("/IncomeStatement")]
-    public IActionResult CreateIncomeStatement(CreateIncomeStatementViewModel model)
+    public IActionResult CreateIncomeStatement([FromForm] CreateIncomeStatementViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.AccountName)

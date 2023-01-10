@@ -16,9 +16,9 @@ public class ExpenseStatementController : ControllerBase
         _expenseStatementService = expenseStatementService;
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpPost("/ExpenseStatement")]
-    public IActionResult CreateExpenseCategory(CreateExpenseStatementViewModel model)
+    public IActionResult CreateExpenseCategory([FromForm] CreateExpenseStatementViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.AccountName)

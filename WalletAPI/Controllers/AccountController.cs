@@ -19,9 +19,9 @@ public class AccountController : ControllerBase
         _accountService = accountService;
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpPost("/Account")]
-    public IActionResult CreateAccount(CreateAccountViewModel model)
+    public IActionResult CreateAccount([FromForm] CreateAccountViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.AccountName))
@@ -43,7 +43,7 @@ public class AccountController : ControllerBase
         return StatusCode(StatusCodes.Status201Created, model);
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpDelete("/Account")]
     public IActionResult DeleteAccount(DeleteAccountViewModel model)
     {
@@ -63,7 +63,7 @@ public class AccountController : ControllerBase
         return NoContent();
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpGet("/Account")]
     public IActionResult GetAccounts(string userName)
     {
@@ -85,9 +85,9 @@ public class AccountController : ControllerBase
             : Ok(accounts.Select(Mapper.CreateAccountViewModel).ToList());
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpPost("/Account/TransferBalance")]
-    public IActionResult TransferBalance(TransferBalanceViewModel model)
+    public IActionResult TransferBalance([FromForm] TransferBalanceViewModel model)
     {
         if (string.IsNullOrEmpty(model.UserName) 
             || string.IsNullOrEmpty(model.FromAccountName) 
@@ -109,7 +109,7 @@ public class AccountController : ControllerBase
         return Ok(model);
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpGet("/Account/SpentAmount")]
     public IActionResult SpentAmount(string userName, string accountName, string? categoryName)
     {
@@ -133,7 +133,7 @@ public class AccountController : ControllerBase
         return Ok(amount);
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpGet("/Account/ReceivedAmount")]
     public IActionResult ReceivedAmount(string userName, string accountName, string? categoryName)
     {
@@ -157,7 +157,7 @@ public class AccountController : ControllerBase
         return Ok(amount);
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpGet("/Account/SpentStatements")]
     public IActionResult SpentStatements(string userName, string accountName, string? categoryName)
     {
@@ -183,7 +183,7 @@ public class AccountController : ControllerBase
             : Ok(statements.Select(Mapper.CreateExpenseStatementViewModel).ToList());
     }
     
-    [EnableCors("WalletCorsPolicy")]
+    //[EnableCors("WalletCorsPolicy")]
     [HttpGet("/Account/ReceiveStatements")]
     public IActionResult ReceiveStatements(string userName, string accountName, string? categoryName)
     {
