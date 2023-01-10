@@ -22,7 +22,9 @@ public class ExpenseCategoryService : IExpenseCategoryService
         var account = _modelsFinder.GetAccount(userName, accountName);
 
         var category = _unitOfWork.ExpenseCategories.GetAll()
-            .FirstOrDefault(c => c.Account.User.Name.Equals(userName) && c.Name.Equals(categoryName));
+            .FirstOrDefault(c => c.Account.User.UserName.Equals(userName) 
+                                 && c.Name.Equals(categoryName)
+                                 && c.Account.Name.Equals(accountName));
         if (category is not null)
             throw new ArgumentException("This category already exists", nameof(categoryName));
         

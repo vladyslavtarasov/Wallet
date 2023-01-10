@@ -23,7 +23,7 @@ public class IncomeCategoryService : IIncomeCategoryService
         var account = _modelsFinder.GetAccount(userName, accountName);
 
         var category = _unitOfWork.IncomeCategories.GetAll()
-            .FirstOrDefault(c => c.Account.User.Name.Equals(userName) 
+            .FirstOrDefault(c => c.Account.User.UserName.Equals(userName) 
                                  && c.Name.Equals(categoryName)
                                  && c.Account.Name.Equals(accountName));
         if (category is not null)
