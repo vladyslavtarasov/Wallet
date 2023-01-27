@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>DAL</id>
+    <version>1.0.0</version>
+    <authors>DAL</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Microsoft.EntityFrameworkCore" version="7.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="7.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ninject" version="4.0.0-beta.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\5 семестр\.NET\.NET3\Wallet\DAL\bin\Debug\net6.0\DAL.dll" target="lib\net6.0\DAL.dll" />
+  </files>
+</package>

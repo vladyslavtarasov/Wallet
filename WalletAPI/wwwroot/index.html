@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./css/normalize.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Document</title>
+</head>
+<body>
+<div class="container">
+  <div class="form-wrapper">
+    <div class="log-btns">
+      <button id="log" class="btn btn-log">login</button>
+      <button id="reg" class="btn btn-reg unactive">register</button>
+    </div>
+    <form class="register-form" id="regform">
+      <input type="text" id="name" placeholder="Name" />
+      <input type="text" id="surname" placeholder="Surname" />
+      <input type="text" id="user_name" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <input type="submit" value="Register" id="submit" />
+    </form>
+    <form class="login-form unactive" id="logform">
+      <input type="text" id="user_name_login" placeholder="Username" />
+      <input type="password" id="password_login" placeholder="Password" />
+      <input type="submit" value="Login" id="submit_login" />
+    </form>
+  </div>
+</div>
+
+<div class="accounts-wrapper">
+  <div class="account-list"></div>
+  <button class="add hidden">Create account</button>
+  <button class="logout hidden">Logout</button>
+</div>
+
+<div class="modal">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <!--<input type="text" id="user_name_create_account" placeholder="Username"/>-->
+    <input type="text" id="account_name_create_account" placeholder="Account name"/>
+    <input type="number" id="balance_create_account" placeholder="Account balance"/>
+    <input type="submit" value="Create" id="submit_create_account"/>
+  </form>
+</div>
+
+<div class="profile-info hidden">
+  <!--<div class="profile-user-name">User name:<span class="user-name-text">Text</span></div>
+  <div class="profile-account-name">Account name:<span class="account-name-text">Text</span></div>
+  <div class="profile-balance">Balance:<span class="balance-number">1000</span> </div>-->
+</div>
+
+<div class="manage-buttons-wrapper hidden">
+  <button id="expense-statement-button">Create expense statement</button>
+  <button id="income-statement-button">Create income statement</button>
+  <button id="expense-category-button">Create expense category</button>
+  <button id="expense-category-delete-button" class="red">Delete expense category</button>
+  <button id="income-category-button">Create income category</button>
+  <button id="income-category-delete-button" class="red">Delete income category</button>
+  <button id="transfer-balance-button">Transfer balance</button>
+  <button id="balance-history-button">Payment history</button>
+  <button id="back-to-accounts-button">Back</button>
+</div>
+
+<div class="modal-create-income-statement">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <select id="create-income-statement-select"></select>
+    <input type="number" id="amount-create-income-statement" placeholder="Amount"/>
+    <input type="submit" value="Create" id="submit_create_income_statement"/>
+  </form>
+</div>
+
+<div class="modal-create-expense-statement">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <select id="create-expense-statement-select"></select>
+    <input type="number" id="amount-create-expense-statement" placeholder="Amount"/>
+    <input type="submit" value="Create" id="submit_create_expense_statement"/>
+  </form>
+</div>
+
+<div class="modal-create-income-category">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <!--<input type="text" id="user_name_create_account" placeholder="Username"/>-->
+    <input type="text" id="category-create-income-category" placeholder="Category name"/>
+    <!--<input type="number" id="balance_create_account" placeholder="Account balance"/>-->
+    <input type="submit" value="Create" id="submit_create_income_category"/>
+  </form>
+</div>
+
+<div class="modal-create-expense-category">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <!--<input type="text" id="user_name_create_account" placeholder="Username"/>-->
+    <input type="text" id="category-create-expense-category" placeholder="Category name"/>
+    <!--<input type="number" id="balance_create_account" placeholder="Account balance"/>-->
+    <input type="submit" value="Create" id="submit_create_expense_category"/>
+  </form>
+</div>
+
+<div class="modal-delete-income-category">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <select id="delete-income-category-select"></select>
+    <!--<input type="text" id="category-delete-income-category" placeholder="Category name"/>-->
+    <input type="submit" value="Delete" id="submit_delete_income_category" class="red"/>
+  </form>
+</div>
+
+<div class="modal-delete-expense-category">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <select id="delete-expense-category-select"></select>
+    <!--<input type="text" id="category-delete-expense-category" placeholder="Category name"/>-->
+    <input type="submit" value="Delete" id="submit_delete_expense_category" class="red"/>
+  </form>
+</div>
+
+<div class="modal-transfer-balance">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <select id="transfer-balance-select"></select>
+    <input type="number" id="amount-transfer-balance" placeholder="Amount"/>
+    <input type="submit" value="Transfer" id="submit_transfer-balance"/>
+  </form>
+</div>
+
+<div class="history-buttons-wrapper hidden">
+  <button id="spent-amount-history-button">Spent amount</button>
+  <button id="income-amount-history-button">Income amount</button>
+  <button id="expense-statements-history-button">Expense statements</button>
+  <button id="income-statements-history-button">Income statements</button>
+  <button id="back-to-account-operations-button">Back</button>
+</div>
+
+<div class="modal-spent-amount-history">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <select id="spent-amount-select"><option>No category</option></select>
+    <input type="submit" value="Get spent amount" id="submit_spent-amount-history"/>
+  </form>
+</div>
+
+<div class="modal-income-amount-history">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <select id="income-amount-history-select"></select>
+    <input type="submit" value="Get income amount" id="submit_income-amount-history"/>
+  </form>
+</div>
+
+<div class="modal-expense-statements-history">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <select id="expense-statements-history-select"></select>
+    <input type="submit" value="Get expense statements" id="submit_expense-statements-history"/>
+  </form>
+</div>
+
+<div class="modal-income-statements-history">
+  <span class="close">x</span>
+  <form class="create-account-form">
+    <select id="income-statements-history-select"></select>
+    <input type="submit" value="Get income statements" id="submit_income-statements-history"/>
+  </form>
+</div>
+
+<div class="statements-wrapper hidden">
+  <div class="statement-list hidden">
+    <div class="statement">
+      <!--<p class="statement-date">Date</p>
+      <p class="statement-amount">Amount:<span class="statement-amount-number">100</span></p>
+      <p class="statement-category">Category</p>-->
+    </div>
+  </div>
+  <button id="back-to-payment-history-button">Back</button>
+</div>
+
+<div class="modal-income-amount-amount">
+  <span class="close">x</span>
+  <div class="create-account-form">
+    <p>You have earned:<span class="earned-num"></span></p>
+  </div>
+</div>
+
+<div class="modal-spent-amount-amount">
+  <span class="close">x</span>
+  <div class="create-account-form">
+    <p>You have spent:<span class="spent-num"></span></p>
+  </div>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="./js/script.js"></script>
+<!--<script src="./js/accountMenuScript.js"></script>-->
+</html>

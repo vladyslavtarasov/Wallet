@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@font-face {
+  font-family: "Stem";
+  font-weight: 700;
+  src: url("../fonts/Stem-Bold.woff2") format("woff2");
+}
+:root {
+  --main-font-family-main: "Stem", sans-serif;
+  --color-light: #fff;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container.hidden {
+  display: none;
+}
+
+.log-btns {
+  display: flex;
+  grid-gap: 10px;
+  margin-bottom: 10px;
+}
+.log-btns .btn {
+  background-color: #2d3132;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+  flex-basis: 50%;
+}
+.log-btns .btn.unactive {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.register-form,
+.login-form {
+  display: flex;
+  grid-gap: 10px;
+  padding: 15px;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.212);
+  background-color: #eff1f1;
+  border-radius: 5px;
+  height: 315px;
+}
+.register-form.unactive,
+.login-form.unactive {
+  display: none;
+}
+.register-form input[type=text],
+.register-form input[type=password],
+.login-form input[type=text],
+.login-form input[type=password] {
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 14px;
+  font-weight: 500;
+  border: 2px solid rgba(128, 128, 128, 0.521);
+  outline: none;
+}
+.register-form input[type=submit],
+.login-form input[type=submit] {
+  background-color: #2d3132;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-top: auto;
+}
+.register-form input[type=submit]:hover,
+.login-form input[type=submit]:hover {
+  opacity: 0.7;
+}
+
+.form-wrapper {
+  padding-top: 40px;
+  margin: auto;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  position: relative;
+}/*# sourceMappingURL=style.css.map */
+
+.accounts-wrapper {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.212);
+  background-color: #eff1f1;
+}
+
+.accounts-wrapper.hidden {
+  display: none;
+}
+
+.account-list.hidden {
+  display: none;
+}
+
+.account {
+  display: flex;
+  grid-gap: 30px;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  max-width: 1000px;
+  margin: 0 auto 10px auto;
+}
+
+.add,
+.choose-button,
+.logout {
+  margin-left: auto;
+  background-color: #2d3132;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+
+}
+
+.add {
+  margin: 0 auto;
+}
+
+.logout {
+  margin: 0 auto;
+}
+
+.add.hidden{
+  display: none;
+}
+
+.logout.hidden{
+  display: none;
+}
+
+.delete-button {
+  background-color: #d20e0e;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+
+.account-name {
+  font-size: 20px;
+}
+
+.account-balance {
+  font-size: 20px;
+}
+
+.modal,
+.modal-create-income-category,
+.modal-create-expense-category,
+.modal-delete-expense-category,
+.modal-delete-income-category,
+.modal-create-income-statement,
+.modal-create-expense-statement,
+.modal-spent-amount-history,
+.modal-income-amount-history,
+.modal-expense-statements-history,
+.modal-income-statements-history,
+.modal-transfer-balance,
+.modal-income-amount-amount,
+.modal-spent-amount-amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: RGBA(0,0,0,0.48);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.close {
+  color: white;
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  top: 20px;
+  right: 20px;
+  position: fixed;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.create-account-form {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  background-color: white;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 0 auto;
+  grid-gap: 10px;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.212);
+  background-color: #eff1f1;
+}
+
+.profile-info.hidden {
+  display: none;
+}
+
+.profile-user-name,
+.profile-account-name,
+.profile-balance {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 15px;
+  font-weight: 700;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  grid-gap: 10px;
+}
+
+.profile-user-name span,
+.profile-account-name span,
+.profile-balance span {
+  text-decoration: underline;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.manage-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.manage-buttons-wrapper.hidden {
+  display: none;
+}
+
+.manage-buttons-wrapper button{
+  background-color: #2d3132;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+  width: 450px;
+}
+
+.manage-buttons-wrapper button.red{
+  background-color: #d20e0e;
+}
+
+.modal-delete-income-category input[type='submit'].red{
+  background-color: #d20e0e;
+}
+
+.modal-delete-expense-category input[type='submit'].red{
+  background-color: #d20e0e;
+}
+
+.create-account-form {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.212);
+  background-color: #eff1f1;
+}
+
+.create-account-form input {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 18px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.create-account-form input[type='submit'] {
+  background-color: #2d3132;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.history-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.history-buttons-wrapper button {
+  background-color: #2d3132;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+  width: 450px;
+}
+
+.history-buttons-wrapper.hidden {
+  display: none;
+}
+
+.statements-wrapper {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.212);
+  background-color: #eff1f1;
+  align-items: center;
+}
+
+.statements-wrapper.hidden {
+  display: none;
+}
+
+.statement-list.hidden {
+  display: none;
+}
+
+.statement {
+  display: flex;
+  grid-gap: 30px;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  max-width: 1000px;
+  margin: 0 auto 10px auto;
+}
+
+.statements-wrapper.hidden {
+  display: none;
+}
+
+.statements-wrapper button {
+  background-color: #2d3132;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+  width: 450px;
+}
+
+.earned-num,
+.spent-num {
+  display: inline-block;
+  margin-left: 2px;
+}
